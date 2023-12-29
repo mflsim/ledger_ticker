@@ -12,7 +12,7 @@ Simple python program to fetch tickers from yahoo for ledger-cli
 
 ## Example
 ### Input
-TRY=X USD TRY
+TRY=X USD TRY (separator - one whitespace)
 ### Output
 P	2023-12-29 13:40:32	USD	29.55342	TRY
 
