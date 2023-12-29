@@ -1,5 +1,8 @@
 from yahooquery import Ticker
 
+INPUT_FILENAME = 'symbols.txt'
+OUTPUT_FILENAME = 'prices.ledger'
+
 def write_ticker(ticker_name, symb1, symb2):
     ticker = Ticker(ticker_name)
     output = ticker.price
@@ -11,12 +14,11 @@ def write_ticker(ticker_name, symb1, symb2):
     datetime = output.get(ticker_name).get('regularMarketTime')
         
     out_line = 'P\t' + datetime + '\t' + symb1 + '\t' + format(price, '.8f').rstrip('0') + '\t' + symb2
-    db_file = open("prices.ledger", "a")
+    db_file = open(OUTPUT_FILENAME, "a")
     db_file.write(out_line + '\n')
     print('Ticker added: ', out_line)
 
-
-file_set = open("symbols.txt","r")
+file_set = open(INPUT_FILENAME,"r")
 file_set_lines = file_set.readlines()
 file_set.close()
 
